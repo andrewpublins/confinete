@@ -8,12 +8,6 @@ for m in genai.list_models():
   if 'generateContent' in m.supported_generation_methods:
     print(m.name)
 
-prompt = input("Digite aqui: ")
-while prompt != "fim":
-  response = chat.send_message(prompt)
-  print("Confinete: ",response.text, "\n")
-  prompt = input("Digite aqui: ")
-
 generation_config = {
   "temperature": 1,
   "top_p": 0.95,
@@ -49,3 +43,9 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
 
 chat = model.start_chat(history=[
 ])
+
+prompt = input("Digite aqui: ")
+while prompt != "fim":
+  response = chat.send_message(prompt)
+  print("Confinete: ",response.text, "\n")
+  prompt = input("Digite aqui: ")
